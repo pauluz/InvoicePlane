@@ -37,7 +37,7 @@
                     } ?>
                     >
               </span>
-                <input id="client_name" name="client_name" type="text" class="form-control input-xm"
+                <input id="client_name" name="client_name" type="text" class="form-control"
                        placeholder="<?php echo lang('client_name'); ?>"
                        value="<?php echo $this->mdl_clients->form_value('client_name'); ?>">
             </div>
