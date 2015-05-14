@@ -44,7 +44,7 @@ class Admin_Controller extends User_Controller
      *
      * @return mixed
      */
-    public function _remap2($method, $params = array())
+    public function _remap($method, $params = array())
     {
         $class = $this->router->fetch_class();
 
