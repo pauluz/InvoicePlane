@@ -50,6 +50,9 @@ class Mdl_Invoices extends Response_Model
 
     public function default_select()
     {
+        // pZ:
+        $this->filter_where('ip_invoices.user_id', $this->session->userdata('user_id'));
+
         $this->db->select("
             SQL_CALC_FOUND_ROWS ip_invoice_custom.*,
             ip_client_custom.*,

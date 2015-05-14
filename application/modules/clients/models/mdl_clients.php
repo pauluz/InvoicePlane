@@ -25,6 +25,9 @@ class Mdl_Clients extends Response_Model
 
     public function default_select()
     {
+        // pZ:
+        parent::default_select();
+
         $this->db->select('SQL_CALC_FOUND_ROWS ip_client_custom.*, ip_clients.*', FALSE);
     }
 
@@ -115,7 +118,10 @@ class Mdl_Clients extends Response_Model
      */
     public function client_lookup($client_name)
     {
-        $client = $this->mdl_clients->where('client_name', $client_name)->get();
+        $client = $this->mdl_clients->where('client_name', $client_name)
+            // pZ:
+            ->where('user_id', $this->session->userdata('user_id'))
+            ->get();
 
         if ($client->num_rows()) {
             $client_id = $client->row()->client_id;

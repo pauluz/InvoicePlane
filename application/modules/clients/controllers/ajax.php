@@ -28,7 +28,14 @@ class Ajax extends Admin_Controller
         // Get the post input
         $query = $this->input->post('query');
 
-        $clients = $this->mdl_clients->select('client_name')->like('client_name', $query)->order_by('client_name')->get(array(), FALSE)->result();
+        // pZ:
+        $clients = $this->mdl_clients
+            ->select('client_name')
+            ->where('user_id', $this->session->userdata('user_id'))
+            ->like('client_name', $query)
+            ->order_by('client_name')
+            ->get(array(), FALSE)
+        ->result();
 
         $response = array();
 
