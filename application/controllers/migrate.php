@@ -12,6 +12,7 @@ class Migrate extends Admin_Controller
 		if (!$this->migration->current()) {
 			show_error($this->migration->error_string());
 		}
+		echo 'end migration';
 	}
 }
 /* End of file migrate.php */
