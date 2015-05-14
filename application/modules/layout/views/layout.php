@@ -224,12 +224,14 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="http://docs.invoiceplane.com/" target="_blank"
-                       class="tip icon" data-original-title="<?php echo lang('documentation'); ?>"
-                       data-placement="bottom">
-                        <i class="fa fa-question-circle"></i>
-                        <span class="visible-xs">&nbsp;<?php echo lang('documentation'); ?></span>
-                    </a>
+                    <span class="navbar-brand">
+                        <?php 
+                            echo $userdata['user_name'];
+                            if (defined('ENVIRONMENT') && (ENVIRONMENT == 'development')) {
+                                echo sprintf(' (%s)', $userdata['user_id']);
+                            }
+                        ?>
+                    </span>
                 </li>
 
                 <li class="dropdown">
@@ -240,7 +242,7 @@
                         <span class="visible-xs">&nbsp;<?php echo lang('settings'); ?></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><?php echo anchor('custom_fields/index', lang('custom_fields')); ?></li>
+<?php /*                        <li><?php echo anchor('custom_fields/index', lang('custom_fields')); ?></li> */ ?>
                         <li><?php echo anchor('email_templates/index', lang('email_templates')); ?></li>
                         <li><?php echo anchor('invoice_groups/index', lang('invoice_groups')); ?></li>
                         <!-- // temporarily disabled
@@ -248,13 +250,15 @@
                         -->
                         <li><?php echo anchor('payment_methods/index', lang('payment_methods')); ?></li>
                         <li><?php echo anchor('tax_rates/index', lang('tax_rates')); ?></li>
-                        <li><?php echo anchor('users/index', lang('user_accounts')); ?></li>
+<?php /*                        <li><?php echo anchor('users/index', lang('user_accounts')); ?></li> */ ?>
                         <li class="divider hidden-xs hidden-sm"></li>
-                        <li><?php echo anchor('settings', lang('system_settings')); ?></li>
+<?php /*                        <li><?php echo anchor('settings', lang('system_settings')); ?></li> */ ?>
                         <li><?php echo anchor('import', lang('import_data')); ?></li>
+                        <li class="divider hidden-xs hidden-sm"></li>
+                        <li><?php echo anchor('sessions/logout', lang('logout')); ?></li>
                     </ul>
                 </li>
-
+<?php /*
                 <li>
                     <a href="<?php echo site_url('sessions/logout'); ?>"
                        class="tip icon logout" data-placement="bottom"
@@ -263,6 +267,7 @@
                         <span class="visible-xs">&nbsp;<?php echo lang('logout'); ?></span>
                     </a>
                 </li>
+*/ ?>
             </ul>
         </div>
     </div>

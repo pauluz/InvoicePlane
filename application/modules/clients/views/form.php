@@ -75,7 +75,7 @@
                                    value="<?php echo $this->mdl_clients->form_value('client_city'); ?>">
                         </div>
                     </div>
-
+<?php /*
                     <div class="form-group">
                         <label><?php echo lang('state'); ?>: </label>
 
@@ -84,7 +84,7 @@
                                    value="<?php echo $this->mdl_clients->form_value('client_state'); ?>">
                         </div>
                     </div>
-
+*/ ?>
                     <div class="form-group">
                         <label><?php echo lang('zip_code'); ?>: </label>
 
@@ -123,7 +123,7 @@
                                    value="<?php echo $this->mdl_clients->form_value('client_phone'); ?>">
                         </div>
                     </div>
-
+<?php /*
                     <div class="form-group">
                         <label><?php echo lang('fax_number'); ?>: </label>
 
@@ -132,7 +132,7 @@
                                    value="<?php echo $this->mdl_clients->form_value('client_fax'); ?>">
                         </div>
                     </div>
-
+*/ ?>
                     <div class="form-group">
                         <label><?php echo lang('mobile_number'); ?>: </label>
 
