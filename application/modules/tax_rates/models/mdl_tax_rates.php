@@ -23,6 +23,9 @@ class Mdl_Tax_Rates extends Response_Model
 
     public function default_select()
     {
+        // pZ:
+        parent::default_select();
+
         $this->db->select('SQL_CALC_FOUND_ROWS *', FALSE);
     }
 
