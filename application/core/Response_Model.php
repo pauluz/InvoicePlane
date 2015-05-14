@@ -22,6 +22,7 @@ class Response_Model extends Form_Validation_Model
     var $tables_with_user_id = array(
         'ip_clients',
 //        'ip_invoices', // pZ: invoices już miało kolumne user_id i sypie się przy db_array() - ale kasowanie działa OK
+        'ip_families',
         'ip_payment_methods',
     );
 
