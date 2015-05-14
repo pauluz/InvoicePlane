@@ -39,7 +39,7 @@ $lang = array(
     'change_password' => 'Change Password',
     'checking_for_updates' => 'Checking for updates...',
     'city' => 'Miasto',
-    'cldr' => 'en',
+    'cldr' => 'pl',
     'client' => 'Klient',
     'client_access' => 'Client Access',
     'client_already_exists' => 'Client already exists!',
@@ -486,4 +486,6 @@ Link to Quote: %4$s',
     'years' => 'Lata',
     'yes' => 'Tak',
     'zip_code' => 'Kod pocztowy',
+
+    'method_not_allowed' => 'Metoda "<i>%s</i>" jest niedozwolona !',
 );
