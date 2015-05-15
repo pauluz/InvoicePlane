@@ -28,6 +28,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/default/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/default/css/custom.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/default/css/upload.css">
 
     <?php if ($this->mdl_settings->setting('monospace_amounts') == 1) { ?>
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/default/css/monospace.css">
@@ -40,6 +41,11 @@
     <script src="<?php echo base_url(); ?>assets/default/js/libs/jquery-ui-1.11.2.custom.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/default/js/libs/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url(); ?>assets/default/js/libs/select2.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/default/js/libs/dropzone.js"></script>
+
+    <script>
+        Dropzone.autoDiscover = false;
+    </script>
 
     <script type="text/javascript">
 
@@ -193,6 +199,19 @@
                     <ul class="dropdown-menu">
                         <li><?php echo anchor('payments/form', lang('enter_payment')); ?></li>
                         <li><?php echo anchor('payments/index', lang('view_payments')); ?></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-caret-down"></i> &nbsp;<span
+                            class="hidden-sm"><?php echo lang('tasks'); ?></span><i
+                            class="visible-sm-inline fa fa-check-square-o"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><?php echo anchor('tasks/form', lang('create_task')); ?></li>
+                        <li><?php echo anchor('tasks/index', lang('show_tasks')); ?></li>
+                        <li><?php echo anchor('projects/index', lang('projects')); ?></li>
                     </ul>
                 </li>
 
