@@ -252,7 +252,7 @@
                         <li><?php echo anchor('tax_rates/index', lang('tax_rates')); ?></li>
 <?php /*                        <li><?php echo anchor('users/index', lang('user_accounts')); ?></li> */ ?>
                         <li class="divider hidden-xs hidden-sm"></li>
-<?php /*                        <li><?php echo anchor('settings', lang('system_settings')); ?></li> */ ?>
+                        <li><?php echo anchor('settings', lang('system_settings')); ?></li>
                         <li><?php echo anchor('import', lang('import_data')); ?></li>
                         <li class="divider hidden-xs hidden-sm"></li>
                         <li><?php echo anchor('sessions/logout', lang('logout')); ?></li>

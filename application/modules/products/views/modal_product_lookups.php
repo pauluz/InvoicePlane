@@ -84,7 +84,7 @@
         <div class="modal-body">
             <div class="form-inline">
                 <div class="form-group filter-form">
-                    <!-- ToDo
+                    <?php /* ToDo
 					<select name="filter_family" id="filter_family" class="form-control">
 						<option value=""><?php echo lang('any_family'); ?></option>
 						<?php foreach ($families as $family) { ?>
@@ -92,7 +92,7 @@
 							<?php if ($family->family_id == $filter_family) echo ' selected="selected"'; ?>><?php echo $family->family_name; ?></option>
 						<?php } ?>
 					</select>
-					-->
+					*/ ?>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="filter_product" id="filter_product"

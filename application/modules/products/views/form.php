@@ -22,7 +22,7 @@
                     </legend>
 
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
+                        <div class="col-xs-12 col-sm-3 col-lg-3 text-right text-left-xs">
                             <label class="control-label"><?php echo lang('family'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
+                        <div class="col-xs-12 col-sm-3 col-lg-3 text-right text-left-xs">
                             <label class="control-label"><?php echo lang('product_sku'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
+                        <div class="col-xs-12 col-sm-3 col-lg-3 text-right text-left-xs">
                             <label class="control-label"><?php echo lang('product_name'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
+                        <div class="col-xs-12 col-sm-3 col-lg-3 text-right text-left-xs">
                             <label class="control-label"><?php echo lang('product_description'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
@@ -67,7 +67,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
+                        <div class="col-xs-12 col-sm-3 col-lg-3 text-right text-left-xs">
                             <label class="control-label"><?php echo lang('product_price'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
+                        <div class="col-xs-12 col-sm-3 col-lg-3 text-right text-left-xs">
                             <label class="control-label"><?php echo lang('tax_rate'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
@@ -101,7 +101,7 @@
 
                     <!--
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
+                        <div class="col-xs-12 col-sm-3 col-lg-3 text-right text-left-xs">
                             <label class="control-label"><?php echo lang('provider_name'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
@@ -111,7 +111,7 @@
                     </div>
     -->
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-3 col-lg-2 text-right text-left-xs">
+                        <div class="col-xs-12 col-sm-3 col-lg-3 text-right text-left-xs">
                             <label class="control-label"><?php echo lang('purchase_price'); ?>: </label>
                         </div>
                         <div class="col-xs-12 col-sm-8 col-lg-8">
