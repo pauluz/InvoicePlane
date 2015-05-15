@@ -488,4 +488,6 @@ Link to Quote: %4$s',
     'years' => 'Years',
     'yes' => 'Yes',
     'zip_code' => 'Zip Code',
+
+    'method_not_allowed' => 'Method "<i>%s</i>" is not allowed !',
 );
