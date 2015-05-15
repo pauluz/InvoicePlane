@@ -19,17 +19,17 @@ if (!defined('BASEPATH'))
 class Admin_Controller extends User_Controller
 {
     public $allowed_classes = array(
-//        'migrate',
+        'migrate',
         'ajax', // pZ: in clients, email_templates, filter, invoices, item_lookups, payments, products, quotes, settings, users
 //        'layout',
         'dashboard',
         'clients',
         'products',
-//        'quotes',
+        'quotes',
         'invoices',
 //        'recurring', // pZ: invoices_recurring (?)
         'invoice_groups',
-//        'payments',
+        'payments',
         'families',
 //        'import'
         'tax_rates',
@@ -41,6 +41,7 @@ class Admin_Controller extends User_Controller
 //        'settings',
 //        'versions', // pZ: settings (?)
 //        'users',
+        'custom_fields',
     );
 
     public function __construct()

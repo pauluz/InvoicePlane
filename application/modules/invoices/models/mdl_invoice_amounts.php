@@ -238,6 +238,8 @@ class Mdl_Invoice_Amounts extends CI_Model
 
     public function get_total_balance($period = NULL)
     {
+        $user_id = 'AND ip_invoices.user_id = ' . $this->session->userdata('user_id');
+
         switch ($period) {
             case 'month':
                 return $this->db->query("SELECT SUM(invoice_balance) AS total_balance 
@@ -270,6 +272,8 @@ class Mdl_Invoice_Amounts extends CI_Model
 
     public function get_status_totals($period = '')
     {
+        $user_id = 'AND ip_invoices.user_id = ' . $this->session->userdata('user_id');
+        
         switch ($period) {
             default:
             case 'this-month':
@@ -279,6 +283,7 @@ class Mdl_Invoice_Amounts extends CI_Model
 					JOIN ip_invoices ON ip_invoices.invoice_id = ip_invoice_amounts.invoice_id
                         AND MONTH(ip_invoices.invoice_date_created) = MONTH(NOW())
                         AND YEAR(ip_invoices.invoice_date_created) = YEAR(NOW())
+                        {$user_id}
 					GROUP BY ip_invoices.invoice_status_id")->result_array();
                 break;
             case 'last-month':
@@ -288,6 +293,7 @@ class Mdl_Invoice_Amounts extends CI_Model
 					JOIN ip_invoices ON ip_invoices.invoice_id = ip_invoice_amounts.invoice_id
                         AND MONTH(ip_invoices.invoice_date_created) = MONTH(NOW() - INTERVAL 1 MONTH)
                         AND YEAR(ip_invoices.invoice_date_created) = YEAR(NOW())
+                        {$user_id}
 					GROUP BY ip_invoices.invoice_status_id")->result_array();
                 break;
             case 'this-quarter':
@@ -296,6 +302,7 @@ class Mdl_Invoice_Amounts extends CI_Model
 					FROM ip_invoice_amounts
 					JOIN ip_invoices ON ip_invoices.invoice_id = ip_invoice_amounts.invoice_id
                         AND QUARTER(ip_invoices.invoice_date_created) = QUARTER(NOW())
+                        {$user_id}
 					GROUP BY ip_invoices.invoice_status_id")->result_array();
                 break;
             case 'last-quarter':
@@ -304,6 +311,7 @@ class Mdl_Invoice_Amounts extends CI_Model
 					FROM ip_invoice_amounts
 					JOIN ip_invoices ON ip_invoices.invoice_id = ip_invoice_amounts.invoice_id
                         AND QUARTER(ip_invoices.invoice_date_created) = QUARTER(NOW() - INTERVAL 1 QUARTER)
+                        {$user_id}
 					GROUP BY ip_invoices.invoice_status_id")->result_array();
                 break;
             case 'this-year':
@@ -312,6 +320,7 @@ class Mdl_Invoice_Amounts extends CI_Model
 					FROM ip_invoice_amounts
 					JOIN ip_invoices ON ip_invoices.invoice_id = ip_invoice_amounts.invoice_id
                         AND YEAR(ip_invoices.invoice_date_created) = YEAR(NOW())
+                        {$user_id}
 					GROUP BY ip_invoices.invoice_status_id")->result_array();
                 break;
             case 'last-year':
@@ -320,6 +329,7 @@ class Mdl_Invoice_Amounts extends CI_Model
 					FROM ip_invoice_amounts
 					JOIN ip_invoices ON ip_invoices.invoice_id = ip_invoice_amounts.invoice_id
                         AND YEAR(ip_invoices.invoice_date_created) = YEAR(NOW() - INTERVAL 1 YEAR)
+                        {$user_id}
 					GROUP BY ip_invoices.invoice_status_id")->result_array();
                 break;
         }

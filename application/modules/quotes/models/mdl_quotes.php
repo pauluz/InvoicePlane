@@ -60,6 +60,9 @@ class Mdl_Quotes extends Response_Model
 
     public function default_select()
     {
+        // pZ:
+        $this->filter_where('ip_quotes.user_id', $this->session->userdata('user_id'));
+
         $this->db->select("
             SQL_CALC_FOUND_ROWS ip_quote_custom.*,
             ip_client_custom.*,
