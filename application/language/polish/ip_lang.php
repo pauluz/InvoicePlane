@@ -237,7 +237,7 @@ $lang = array(
     'min_quantity' => 'Minimal Quantity',
     'mobile' => 'Mobile',
     'mobile_number' => 'Numer komórki',
-    'monday' => 'Poniedziałek',    
+    'monday' => 'Poniedziałek',
     'monospaced_font_for_amounts' => 'Use a Monospace font for amounts',
     'month' => 'Miesiąc',
     'month_prefix' => 'Month Prefix',
@@ -489,6 +489,4 @@ Link to Quote: %4$s',
     'years' => 'Lata',
     'yes' => 'Tak',
     'zip_code' => 'Kod pocztowy',
-
-    'method_not_allowed' => 'Metoda "<i>%s</i>" jest niedozwolona !',
 );
