@@ -41,7 +41,7 @@ class Admin_Controller extends User_Controller
 //        'settings',
 //        'versions', // pZ: settings (?)
 //        'users',
-        'custom_fields',
+//        'custom_fields',
     );
 
     public function __construct()

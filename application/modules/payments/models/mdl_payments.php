@@ -24,6 +24,9 @@ class Mdl_Payments extends Response_Model
 
     public function default_select()
     {
+        // pZ:
+        $this->filter_where('ip_payments.user_id', $this->session->userdata('user_id'));
+
         $this->db->select("
             SQL_CALC_FOUND_ROWS ip_payment_custom.*,
             ip_payment_methods.*,
