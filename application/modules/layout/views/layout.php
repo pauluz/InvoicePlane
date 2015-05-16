@@ -307,6 +307,11 @@
             </a>
         </li>
         <li>
+            <a href="<?php echo site_url('projects/index'); ?>">
+                <i class="fa fa-briefcase"></i>
+            </a>
+        </li>
+        <li>
             <a href="<?php echo site_url('quotes/index'); ?>">
                 <i class="fa fa-file"></i>
             </a>
