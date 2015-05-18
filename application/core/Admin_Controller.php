@@ -38,6 +38,8 @@ class Admin_Controller extends User_Controller
 //        'reports',
 //        'mailer',
         'email_templates',
+        'tasks',
+        'projects',
 //        'settings',
 //        'versions', // pZ: settings (?)
 //        'users',

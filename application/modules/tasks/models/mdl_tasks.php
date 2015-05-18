@@ -23,6 +23,9 @@ class Mdl_Tasks extends Response_Model {
 
     public function default_select()
     {
+        // pZ:
+        parent::default_select();
+
         $this->db->select('SQL_CALC_FOUND_ROWS *,
           (CASE WHEN DATEDIFF(NOW(), task_finish_date) > 0 THEN 1 ELSE 0 END) is_overdue
         ', FALSE);

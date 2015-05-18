@@ -25,6 +25,9 @@ class Response_Model extends Form_Validation_Model
         'ip_families',
         'ip_payment_methods',
         'ip_products',
+        'ip_projects',
+        'ip_tasks',
+        'ip_uploads',
         'ip_tax_rates',
     );
 
