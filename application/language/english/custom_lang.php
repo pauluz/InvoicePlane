@@ -13,5 +13,5 @@
  */
 
 $lang = array(
-
+    'method_not_allowed' => 'Method "<i>%s</i>" is not allowed !',
 );
