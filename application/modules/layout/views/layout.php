@@ -40,8 +40,10 @@
     <script src="<?php echo base_url(); ?>assets/default/js/libs/jquery-ui-1.11.2.custom.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/default/js/libs/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url(); ?>assets/default/js/libs/select2.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/default/js/libs/dropzone.js"></script>
 
     <script type="text/javascript">
+        Dropzone.autoDiscover = false;
 
         $(function () {
             $('.nav-tabs').tab();
@@ -256,6 +258,7 @@
                         <li><?php echo anchor('custom_fields/index', lang('custom_fields')); ?></li>
                         <li><?php echo anchor('email_templates/index', lang('email_templates')); ?></li>
                         <li><?php echo anchor('invoice_groups/index', lang('invoice_groups')); ?></li>
+                        <li><?php echo anchor('invoices/archive', lang('invoice_archive')); ?></li>
                         <!-- // temporarily disabled
                         <li><?php echo anchor('item_lookups/index', lang('item_lookups')); ?></li>
                         -->
@@ -319,6 +322,10 @@
 
     <?php echo $content; ?>
 
+</div>
+
+<div id="fullpage-loader" style="display: none;">
+    <i class="fa fa-cog fa-spin"></i>
 </div>
 
 <script defer src="<?php echo base_url(); ?>assets/default/js/plugins.js"></script>
