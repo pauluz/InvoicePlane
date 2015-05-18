@@ -11,6 +11,17 @@
 |
 */
 
+// pZ:
+$config['benchmarks']         = false;
+//$config['config']             = false;
+$config['controller_info']    = false;
+//$config['get']                = false;
+$config['http_headers']       = false;
+$config['memory_usage']       = false;
+$config['post']               = false;
+$config['queries']            = false;
+$config['uri_string']         = false;
+$config['query_toggle_count'] = 10;
 
 
 /* End of file profiler.php */
