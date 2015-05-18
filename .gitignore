@@ -1,9 +1,12 @@
 /application/config/development
 /application/logs/*
 !/application/logs/index.html
+/uploads/*
+!/uploads/remove.txt
 /uploads/temp/*
 !/uploads/temp/remove.txt
 /application/helpers/mpdf/ttfontdata/*
+/*.html
 
 .idea
 .sass-cache
