@@ -5,6 +5,10 @@
 !/uploads/remove.txt
 /uploads/temp/*
 !/uploads/temp/remove.txt
+/uploads/archive/*
+/uploads/customer_files/*
+/uploads/import/*
+/uploads/temp/*
 /application/helpers/mpdf/ttfontdata/*
 /*.html
 
