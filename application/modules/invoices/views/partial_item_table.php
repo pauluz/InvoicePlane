@@ -160,10 +160,11 @@
                     </div>
                 </td>
                 <td class="td-icon text-right td-vert-middle">
-                    <a href="<?php echo site_url('invoices/delete_item/' . $invoice->invoice_id . '/' . $item->item_id); ?>"
-                       title="<?php echo lang('delete'); ?>">
-                        <i class="fa fa-trash-o text-danger"></i>
-                    </a>
+                    <?php if ($invoice->is_read_only != 1): ?>
+                        <a href="<?php echo site_url('invoices/delete_item/' . $invoice->invoice_id . '/' . $item->item_id); ?>" title="<?php echo lang('delete'); ?>">
+                            <i class="fa fa-trash-o text-danger"></i>
+                        </a>
+                    <?php endif; ?>
                 </td>
             </tr>
             <tr>
@@ -261,7 +262,10 @@
                         <div class="input-group input-group-sm">
                             <input id="invoice_discount_amount" name="invoice_discount_amount"
                                    class="discount-option form-control input-sm amount"
-                                   value="<?php echo($invoice->invoice_discount_amount != 0 ? $invoice->invoice_discount_amount : ''); ?>">
+                                   value="<?php echo($invoice->invoice_discount_amount != 0 ? $invoice->invoice_discount_amount : ''); ?>"
+                                <?php if ($invoice->is_read_only == 1) {
+                                echo 'disabled="disabled"';
+                            } ?>>
 
                             <div
                                 class="input-group-addon"><?php echo $this->mdl_settings->setting('currency_symbol'); ?></div>
@@ -271,8 +275,10 @@
                         <div class="input-group input-group-sm">
                             <input id="invoice_discount_percent" name="invoice_discount_percent"
                                    value="<?php echo($invoice->invoice_discount_percent != 0 ? $invoice->invoice_discount_percent : ''); ?>"
-                                   class="discount-option form-control input-sm amount">
-
+                                   class="discount-option form-control input-sm amount"
+                                <?php if ($invoice->is_read_only == 1) {
+                                    echo 'disabled="disabled"';
+                                } ?>>
                             <div class="input-group-addon">&percnt;</div>
                         </div>
                     </div>

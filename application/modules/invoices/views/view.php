@@ -61,13 +61,16 @@
                         window.location = "<?php echo site_url('invoices/view'); ?>/" + <?php echo $invoice_id; ?>;
                     }
                     else {
-                        $('.control-group').removeClass('error');
+                        $('#fullpage-loader').hide();
+                        $('.control-group').removeClass('has-error');
                         $('div.alert[class*="alert-"]').remove();
-                        var resp_errors = response.validation_errors;
+                        var resp_errors = response.validation_errors,
+                            all_resp_errors = '';
                         for (var key in resp_errors) {
-                            $('#' + key).parent().parent().addClass('error');
-                            $('#invoice_form').prepend('<div class="alert alert-danger">' + resp_errors[key] + '</div>');
+                            $('#' + key).parent().addClass('has-error');
+                            all_resp_errors += resp_errors[key];
                         }
+                        $('#invoice_form').prepend('<div class="alert alert-danger">' + all_resp_errors + '</div>');
                     }
                 });
         });
@@ -76,7 +79,7 @@
             window.open('<?php echo site_url('invoices/generate_pdf/' . $invoice_id); ?>', '_blank');
         });
 
-        <?php if ($invoice->is_read_only != 1) { ?>
+        <?php if ($invoice->is_read_only != 1): ?>
         var fixHelper = function (e, tr) {
             var $originals = tr.children();
             var $helper = tr.clone();
@@ -90,7 +93,6 @@
             items: 'tbody',
             helper: fixHelper
         });
-        <?php } ?>
 
         $(document).ready(function () {
             if ($('#invoice_discount_percent').val().length > 0) {
@@ -114,6 +116,7 @@
                 $('#invoice_discount_amount').prop('disabled', false);
             }
         });
+        <?php endif; ?>
     });
 
 </script>

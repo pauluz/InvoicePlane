@@ -198,7 +198,7 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
+                <li class="dropdown hidden">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;<span
                             class="hidden-sm"><?php echo lang('tasks'); ?></span><i
@@ -324,8 +324,17 @@
 
 </div>
 
-<div id="fullpage-loader" style="display: none;">
-    <i class="fa fa-cog fa-spin"></i>
+<div id="fullpage-loader" style="display: none">
+    <div class="loader-content">
+        <i class="fa fa-cog fa-spin"></i>
+        <div id="loader-error" style="display: none">
+            <?php echo lang('loading_error'); ?><br/>
+            <a href="https://wiki.invoiceplane.com/<?php echo lang('cldr'); ?>/1.0/general/faq"
+               class="btn btn-primary btn-sm" target="_blank">
+                <i class="fa fa-support"></i> <?php echo lang('loading_error_help'); ?>
+            </a>
+        </div>
+    </div>
 </div>
 
 <script defer src="<?php echo base_url(); ?>assets/default/js/plugins.js"></script>
