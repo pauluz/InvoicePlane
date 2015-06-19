@@ -91,20 +91,25 @@
 						<option value=""><?php echo lang('any_family'); ?></option>
 						<?php foreach ($families as $family) { ?>
 						<option value="<?php echo $family->family_id; ?>"
-							<?php if ($family->family_id == $filter_family) echo ' selected="selected"'; ?>><?php echo $family->family_name; ?></option>
+							<?php if (isset($filter_family) && $family->family_id == $filter_family) {
+                                echo ' selected="selected"';
+                            } ?>><?php echo $family->family_name; ?></option>
 						<?php } ?>
 					</select>
 					-->
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" name="filter_product" id="filter_product"
-                                   placeholder="<?php echo lang('product_name'); ?>" value="<?php echo $filter_product ?>">
+                                   placeholder="<?php echo lang('product_name'); ?>"
+                                   value="<?php echo $filter_product ?>">
                         </div>
                         <button type="button" id="filter-button"
                                 class="btn btn-default"><?php echo lang('search_product'); ?></button>
                         <!-- ToDo
-				<button type="button" id="reset-button" class="btn btn-default"><?php echo lang('reset'); ?></button>
-				-->
+                        <button type="button" id="reset-button" class="btn btn-default">
+                            <?php //echo lang('reset'); ?>
+                        </button>
+                        -->
                     </div>
                 </div>
                 <div class="col-xs-4 text-right">
@@ -172,7 +177,7 @@
                     <i class="fa fa-times"></i>
                     <?php echo lang('cancel'); ?>
                 </button>
-                <button class="select-items-confirm btn btn-success"  type="button">
+                <button class="select-items-confirm btn btn-success" type="button">
                     <i class="fa fa-check"></i>
                     <?php echo lang('submit'); ?>
                 </button>

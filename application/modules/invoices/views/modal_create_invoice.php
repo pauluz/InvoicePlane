@@ -1,5 +1,3 @@
-<?php $this->layout->load_view('clients/jquery_client_lookup'); ?>
-
 <script type="text/javascript">
     $(function () {
         // Display the create invoice modal
@@ -10,7 +8,30 @@
         });
 
         $().ready(function () {
-            $("[name='client_name']").select2({allowClear: true});
+            $("[name='client_name']").select2({
+                createSearchChoice: function (term, data) {
+                    if ($(data).filter(function () {
+                            return this.text.localeCompare(term) === 0;
+                        }).length === 0) {
+                        return {id: term, text: term};
+                    }
+                },
+                multiple: false,
+                allowClear: true,
+                data: [
+                    <?php
+                    $i=0;
+                    foreach ($clients as $client){
+                        echo "{
+                        id: '".str_replace("'","\'",$client->client_name)."',
+                        text: '".str_replace("'","\'",$client->client_name)."'
+                        }";
+                        if (($i+1) != count($clients)) echo ',';
+                        $i++;
+                    }
+                    ?>
+                ]
+            });
             $("#client_name").focus();
         });
 
@@ -56,19 +77,14 @@
         </div>
         <div class="modal-body">
 
-            <input class="hidden" id="payment_method_id" value="<?php echo $this->mdl_settings->setting('invoice_default_payment_method'); ?>">
+            <input class="hidden" id="payment_method_id"
+                   value="<?php echo $this->mdl_settings->setting('invoice_default_payment_method'); ?>">
 
             <div class="form-group">
                 <label for="client_name"><?php echo lang('client'); ?></label>
-                <select name="client_name" id="client_name" class="input-sm form-control" autofocus>
-                    <option></option>
-                    <?php foreach ($clients as $client) { ?>
-                        <option value="<?php echo $client->client_name; ?>"
-                                <?php if ($client_name == $client->client_name) { ?>selected="selected"<?php } ?>
-                            > <?php echo $client->client_name; ?>     </option>
-
-                    <?php } ?>
-                </select>
+                <input type="text" name="client_name" id="client_name" class="form-control"
+                       autofocus="autofocus"
+                    <?php if ($client_name) echo 'value="' . html_escape($client_name) . '"'; ?>>
             </div>
 
             <div class="form-group has-feedback">
@@ -87,7 +103,11 @@
             <div class="form-group">
                 <label for="invoice_password"><?php echo lang('invoice_password'); ?></label>
                 <input type="text" name="invoice_password" id="invoice_password" class="form-control"
-                       value="<?php if ($this->mdl_settings->setting('invoice_pre_password') == ''){echo '';}else{echo $this->mdl_settings->setting('invoice_pre_password');}?>" style="margin: 0 auto;" autocomplete="off">
+                       value="<?php if ($this->mdl_settings->setting('invoice_pre_password') == '') {
+                           echo '';
+                       } else {
+                           echo $this->mdl_settings->setting('invoice_pre_password');
+                       } ?>" style="margin: 0 auto;" autocomplete="off">
             </div>
 
             <div class="form-group">
@@ -111,7 +131,7 @@
                 <button class="btn btn-danger" type="button" data-dismiss="modal">
                     <i class="fa fa-times"></i> <?php echo lang('cancel'); ?>
                 </button>
-                <button class="btn btn-success" id="invoice_create_confirm" type="button">
+                <button class="btn btn-success ajax-loader" id="invoice_create_confirm" type="button">
                     <i class="fa fa-check"></i> <?php echo lang('submit'); ?>
                 </button>
             </div>

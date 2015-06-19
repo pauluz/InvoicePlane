@@ -32,36 +32,6 @@ class Mdl_Uploads extends Response_Model
     {
     }
 
-    public function validation_rules()
-    {
-        return array(
-            'client_name' => array(
-                'field' => 'client_name',
-                'label' => lang('client'),
-                'rules' => 'required'
-            ),
-            'quote_date_created' => array(
-                'field' => 'quote_date_created',
-                'label' => lang('quote_date'),
-                'rules' => 'required'
-            ),
-            'invoice_group_id' => array(
-                'field' => 'invoice_group_id',
-                'label' => lang('quote_group'),
-                'rules' => 'required'
-            ),
-            'quote_password' => array(
-                'field' => 'quote_password',
-                'label' => lang('quote_password')
-            ),
-            'user_id' => array(
-                'field' => 'user_id',
-                'label' => lang('user'),
-                'rule' => 'required'
-            )
-        );
-    }
-
     public function create($db_array = NULL)
     {
         $upload_id = parent::save(NULL, $db_array);
@@ -73,14 +43,12 @@ class Mdl_Uploads extends Response_Model
     {
         $this->load->model('quotes/mdl_quotes');
         $quote = $this->mdl_quotes->get_by_id($id);
-        $query = $this->db->query("Select file_name_new,file_name_original from ip_uploads where url_key = '". $quote->quote_url_key ."'");
-        if ($query->num_rows() > 0)
-        {
-            $names = array();
-            foreach ($query->result() as $row)
-            {
-                array_push($names,array(
-                    'path' => getcwd() . '/uploads/customer_files/'. $row->file_name_new,
+        $query = $this->db->query("Select file_name_new,file_name_original from ip_uploads where url_key = '" . $quote->quote_url_key . "'");
+        $names = array();
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                array_push($names, array(
+                    'path' => getcwd() . '/uploads/customer_files/' . $row->file_name_new,
                     'filename' => $row->file_name_original));
             }
         }
@@ -91,14 +59,13 @@ class Mdl_Uploads extends Response_Model
     {
         $this->load->model('invoices/mdl_invoices');
         $invoice = $this->mdl_invoices->get_by_id($id);
-        $query = $this->db->query("Select file_name_new,file_name_original from ip_uploads where url_key = '". $invoice->invoice_url_key ."'");
-        if ($query->num_rows() > 0)
-        {
-            $names = array();
-            foreach ($query->result() as $row)
-            {
-                array_push($names,array(
-                    'path' => getcwd() . '/uploads/customer_files/'. $row->file_name_new,
+        $query = $this->db->query("Select file_name_new,file_name_original from ip_uploads where url_key = '" . $invoice->invoice_url_key . "'");
+
+        $names = array();
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                array_push($names, array(
+                    'path' => getcwd() . '/uploads/customer_files/' . $row->file_name_new,
                     'filename' => $row->file_name_original));
             }
         }

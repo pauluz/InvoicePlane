@@ -16,7 +16,7 @@ if (!defined('BASEPATH'))
  * 
  */
 
-function phpmail_send($from, $to, $subject, $message, $attachment_path = NULL, $cc = NULL, $bcc = NULL,$more_attachments = NULL)
+function phpmail_send($from, $to, $subject, $message, $attachment_path = NULL, $cc = NULL, $bcc = NULL, $more_attachments = NULL)
 {
     require_once(APPPATH . 'modules/mailer/helpers/phpmailer/class.phpmailer.php');
 
@@ -88,37 +88,34 @@ function phpmail_send($from, $to, $subject, $message, $attachment_path = NULL, $
         }
     }
 
-    if ($bcc || $CI->mdl_settings->setting('bcc_mails_to_admin') == 1) {
+    if ($bcc) {
 
         // Allow multiple BCC's delimited by comma or semicolon
-        $bcc = (isset($bcc) ? $bcc : array());
         $bcc = (strpos($bcc, ',')) ? explode(',', $bcc) : explode(';', $bcc);
-
-        // Get email address of admin account and push it to the array
-        $CI->load->model('users/mdl_users');
-        $CI->db->where('user_id', 1);
-        $admin = $CI->db->get('ip_users')->row();
-        $admin_email = $admin->user_email;
-        array_push($bcc, $admin_email);
-
-        // Clean the array
-        $bcc = array_filter($bcc);
-
         // Add the BCC's
         foreach ($bcc as $address) {
             $mail->AddBCC($address);
         }
+
+    }
+
+    if ($CI->mdl_settings->setting('bcc_mails_to_admin') == 1) {
+        // Get email address of admin account and push it to the array
+        $CI->load->model('users/mdl_users');
+        $CI->db->where('user_id', 1);
+        $admin = $CI->db->get('ip_users')->row();
+        $mail->AddBCC($admin->user_email);
     }
 
     // Add the attachment if supplied
     if ($attachment_path && $CI->mdl_settings->setting('email_pdf_attachment')) {
-            $mail->AddAttachment($attachment_path);
+        $mail->AddAttachment($attachment_path);
     }
     // Add the other attachments if supplied
     if ($more_attachments) {
 
-        foreach($more_attachments as $paths) {
-            $mail->AddAttachment($paths['path'],$paths['filename']);
+        foreach ($more_attachments as $paths) {
+            $mail->AddAttachment($paths['path'], $paths['filename']);
         }
     }
 

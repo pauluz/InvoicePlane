@@ -28,7 +28,6 @@
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/default/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/default/css/custom.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/default/css/upload.css">
 
     <?php if ($this->mdl_settings->setting('monospace_amounts') == 1) { ?>
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/default/css/monospace.css">
@@ -43,11 +42,8 @@
     <script src="<?php echo base_url(); ?>assets/default/js/libs/select2.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/default/js/libs/dropzone.js"></script>
 
-    <script>
-        Dropzone.autoDiscover = false;
-    </script>
-
     <script type="text/javascript">
+        Dropzone.autoDiscover = false;
 
         $(function () {
             $('.nav-tabs').tab();
@@ -202,7 +198,7 @@
                     </ul>
                 </li>
 
-                <li class="dropdown">
+                <li class="dropdown hidden">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-caret-down"></i> &nbsp;<span
                             class="hidden-sm"><?php echo lang('tasks'); ?></span><i
@@ -264,6 +260,7 @@
 <?php /*                        <li><?php echo anchor('custom_fields/index', lang('custom_fields')); ?></li> */ ?>
                         <li><?php echo anchor('email_templates/index', lang('email_templates')); ?></li>
                         <li><?php echo anchor('invoice_groups/index', lang('invoice_groups')); ?></li>
+                        <li><?php echo anchor('invoices/archive', lang('invoice_archive')); ?></li>
                         <!-- // temporarily disabled
                         <li><?php echo anchor('item_lookups/index', lang('item_lookups')); ?></li>
                         -->
@@ -335,6 +332,19 @@
 
     <?php echo $content; ?>
 
+</div>
+
+<div id="fullpage-loader" style="display: none">
+    <div class="loader-content">
+        <i class="fa fa-cog fa-spin"></i>
+        <div id="loader-error" style="display: none">
+            <?php echo lang('loading_error'); ?><br/>
+            <a href="https://wiki.invoiceplane.com/<?php echo lang('cldr'); ?>/1.0/general/faq"
+               class="btn btn-primary btn-sm" target="_blank">
+                <i class="fa fa-support"></i> <?php echo lang('loading_error_help'); ?>
+            </a>
+        </div>
+    </div>
 </div>
 
 <script defer src="<?php echo base_url(); ?>assets/default/js/plugins.js"></script>
